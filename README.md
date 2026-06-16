@@ -14,18 +14,18 @@ This project is an enhanced version of the original [Minimal Chaac Weather](http
 
 ## ✨ Features
 
-* **Animated Visuals**: Dynamic weather backgrounds (rain, snow, sun, storm, etc.) that adapt to the current conditions and your Plasma theme (light/dark mode).
-* **Interactive Charts**: Swipeable daily forecast with detailed hourly charts (Temperature, Humidity, Wind, UV Index). Features smooth gradients, precise hover data, and adaptive styling.
+* **Animated Visuals**: Dynamic weather backgrounds (rain, snow, sun, storm, etc.) that adapt to current conditions and your Plasma theme (light/dark mode).
+* **Interactive Charts**: Swipeable daily forecast with detailed hourly charts (Temperature, Humidity, Wind, UV Index), featuring smooth gradients, precise hover data, and adaptive styling.
 * **Minimalist UI**: Clean, airy design inspired by the Plasma 6 aesthetic.
 * **Advanced Customization**:
 
   * **Visual Control**: Toggle between different visual styles.
   * **Unit System**: Easily switch between Metric (°C, km/h) and Imperial (°F, mph) units.
-  * **Text Styling**: Fully configurable bold text for temperatures and weather conditions, font sizing, and more.
-  * **Data Precision**: Toggle decimal display independently for the panel and the interactive charts.
+  * **Text Styling**: Configure bold text, font sizing, and display preferences.
+  * **Data Precision**: Toggle decimal display independently for the panel and interactive charts.
   * **Timing**: Set your preferred weather update interval.
   * **...and much more!**
-* **i18n Support**: Multilingual support available out of the box.
+* **Multilingual Support**: Available in 🇺🇸 English, 🇪🇸 Spanish, 🇫🇷 French, 🇯🇵 Japanese, 🇳🇱 Dutch, 🇵🇹 Portuguese, 🇷🇺 Russian, 🇹🇷 Turkish, 🇻🇳 Vietnamese, and 🇨🇳 Simplified Chinese.
 
 ---
 
@@ -50,31 +50,14 @@ kpackagetool6 --type Plasma/Applet --install modern-weather-enhanced.plasmoid
 
 ---
 
-## 🌍 Localization & Translation
-
-We are committed to making this widget accessible to everyone.
-### Supported Languages
-* 🇺🇸 English (Base Language)
-* 🇪🇸 Spanish (`es`)
-* 🇫🇷 French (`fr`)
-* 🇯🇵 Japanese (`ja`)
-* 🇳🇱 Dutch (`nl`)
-* 🇵🇹 Portuguese (`pt`)
-* 🇷🇺 Russian (`ru`) — Translated by [Lintech-1](https://github.com/Lintech-1)
-* 🇹🇷 Turkish (`tr`)
-* 🇻🇳 Vietnamese (`vi`)
-* 🇨🇳 Chinese Simplified (`zh_CN`)
-
-### Contribute
+## 🤝 Contributing
 
 Contributions of all kinds are welcome and greatly appreciated! ❤️
-
-Have an idea to improve the widget?
 
 Whether it's:
 
 * 🌍 New translations or localization improvements
-* 🎨 UI/UX or aesthetic improvements
+* 🎨 UI/UX and visual enhancements
 * ✨ New features and functionality
 * ⚡ Performance optimizations
 * 🐛 Bug fixes
@@ -83,13 +66,11 @@ Whether it's:
 
 Feel free to open an Issue, submit a Pull Request, or suggest enhancements. Every contribution, big or small, helps make **Minimalist Weather Animated** even better for everyone.
 
-For translations, check the `translate/` folder and create a new `.po` file based on `template.pot`.
-
 ---
 
 ## 🌟 Support the Project
 
-Feedback and feature requests are always welcome!
+Feedback, bug reports, and feature requests are always welcome!
 
 If you find this widget useful, please consider:
 
@@ -97,6 +78,15 @@ If you find this widget useful, please consider:
 * 🛍️ Leaving a rating on the KDE Store: https://store.kde.org/p/2356087
 
 Your support helps keep the project alive and motivates future improvements.
+
+---
+
+## 🚧 To Do
+
+Planned improvements for future releases:
+
+* Improve and refine weather animations.
+* Additional ideas and community suggestions are always welcome.
 
 ---
 
@@ -113,7 +103,7 @@ Your support helps keep the project alive and motivates future improvements.
 
 ### Current Maintainer
 
-* [Samy879](https://github.com/Samy879) — Enhanced development, maintenance, new features, animations, charts, and customization options.
+* [Samy879](https://github.com/Samy879) — Enhanced development, maintenance, new features, animations, charts, customization options, and overall project evolution.
 
 ---
 
