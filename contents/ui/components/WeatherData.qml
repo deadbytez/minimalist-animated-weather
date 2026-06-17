@@ -17,6 +17,12 @@ Item {
   property int updateInterval: Plasmoid.configuration.updateInterval || 15
 
   property bool isBusy: false
+  // Devient true seulement après Component.onCompleted : permet aux
+  // handlers onXxxChanged ci-dessous de distinguer un vrai changement fait
+  // par l'utilisateur (en cours d'exécution) de l'évaluation initiale des
+  // property bindings au chargement (qui déclenche aussi ces signaux et
+  // provoquerait sinon des updateWeather() redondants au démarrage).
+  property bool componentReady: false
 
   property int refreshTrigger: Plasmoid.configuration.refreshTrigger
   onRefreshTriggerChanged: {
@@ -175,6 +181,12 @@ Item {
     return (b === true || b === "preciso") ? icon + prefixIcon : icon;
   }
 
-  Component.onCompleted: updateWeather()
-  onTemperatureUnitChanged: updateWeather()
+  Component.onCompleted: {
+    updateWeather();
+    componentReady = true;
+  }
+  onTemperatureUnitChanged: if (componentReady) updateWeather()
+  onUseCoordinatesIpChanged: if (componentReady) updateWeather()
+  onLatitudeCChanged: if (componentReady && !isAutoLoc) updateWeather()
+  onLongitudeCChanged: if (componentReady && !isAutoLoc) updateWeather()
 }

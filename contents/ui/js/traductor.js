@@ -395,7 +395,7 @@ function weatherShortText(languageCode, code) {
     if (descriptions[languageCode]) {
         return descriptions[languageCode][code] || "Unknown";
     } else {
-        return descriptions["en"][code];
+        return descriptions["en"][code] || "Unknown";
     }
 }
 
@@ -706,7 +706,7 @@ function weatherLongText(languageCode, code) {
     if (descriptions[languageCode]) {
         return descriptions[languageCode][code] || "Unknown";
     } else {
-        return descriptions["en"][code];
+        return descriptions["en"][code] || "Unknown";
     }
 }
 
@@ -750,7 +750,7 @@ function lavelUV(languageCode, lavel) {
     if (translations[languageCode]) {
         return translations[languageCode][lavel] || "Unknown";
     } else {
-        return translations["en"][lavel];
+        return translations["en"][lavel] || "Unknown";
     }
 }
 
