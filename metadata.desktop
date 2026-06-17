@@ -26,12 +26,14 @@ Icon=weather-clouds
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
-X-KDE-PluginInfo-Name=com.github.samy879.modernweather
+
+X-KDE-PluginInfo-Name=com.github.samy879.minimalist-weather-animated
+X-KDE-PluginInfo-Keywords=Weather;Meteo;Météo;Forecast;Animated;Minimalist;Widget;Plasma;
+
 X-KDE-PluginInfo-Author=Samy879
 X-KDE-PluginInfo-Email=samy.rk800@gmail.com
 X-KDE-PluginInfo-Version=1.1
 X-KDE-PluginInfo-Website=https://github.com/samy879/minimalist-weather-animated
 X-KDE-PluginInfo-Category=Weather
-X-KDE-PluginInfo-Keywords=Weather;Météo;Forecast;Animated;Minimalist;
 X-KDE-PluginInfo-License=GPL-3.0+
 X-KDE-PluginInfo-EnabledByDefault=true

@@ -14,7 +14,9 @@
         "Name[tr]": "Minimalist Weather Animated",
         "Name[vi]": "Minimalist Weather Animated",
         "Name[zh_CN]": "Minimalist Weather Animated",
-        "Id": "com.github.samy879.modernweather",
+
+        "Id": "com.github.samy879.minimalist-weather-animated",
+
         "Description": "An animated weather widget for KDE Plasma 6.",
         "Description[es]": "Un widget de clima animado para KDE Plasma 6.",
         "Description[fr]": "Un widget météo animé pour KDE Plasma 6.",
@@ -26,7 +28,9 @@
         "Description[vi]": "Một widget thời tiết sinh động cho KDE Plasma 6.",
         "Description[zh_CN]": "一个适用于 KDE Plasma 6 的动画化天气小组件。",
         "Category": "Environment and Weather",
-        "Keywords": "Weather;Météo;Forecast;Animated;Minimalist;",
+
+        "Keywords": "Weather;Meteo;Météo;Forecast;Animated;Minimalist;Widget;Plasma;",
+
         "Icon": "weather-clouds",
         "EnabledByDefault": true,
         "License": "GPL-3.0+",
