@@ -2,7 +2,7 @@
 
 
 
-# Minimalist Weather Animated 🌦️
+# Minimalist Animated Weather 🌦️
 
 A highly customizable, animated, and minimalist weather widget for KDE Plasma 6, focused on data clarity and modern design.
 
