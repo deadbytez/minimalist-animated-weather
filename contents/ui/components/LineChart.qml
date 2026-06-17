@@ -426,6 +426,37 @@ Item {
                     ctx.stroke();
                     ctx.setLineDash([]);
 
+                    // Étiquette dynamique de l'heure pointée par la ligne
+                    // verticale ci-dessus — uniquement si cette heure ne
+                    // correspond pas déjà à un repère fixe (0h/6h/12h/18h),
+                    // pour ne pas faire doublon avec le libellé déjà dessiné
+                    // par drawXAxis(). Elle suit donc exactement la ligne en
+                    // pointillés, et se déplace avec le point survolé/courant.
+                    if ([0, 6, 12, 18].indexOf(curIdx) === -1) {
+                        let hourLbl = curIdx + "h";
+                        let hourFontSize = Math.round(Kirigami.Units.gridUnit * 0.45);
+                        ctx.font = hourFontSize + "px sans-serif";
+                        ctx.textAlign = cx < pL + 18 ? "left" : (cx > w - pR - 18 ? "right" : "center");
+                        ctx.textBaseline = "top";
+                        ctx.fillStyle = Qt.rgba(textColor.r, textColor.g, textColor.b, labelOpacity);
+                        ctx.shadowColor = Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.85);
+                        ctx.shadowBlur = 3;
+                        ctx.fillText(hourLbl, cx, h - pB + 4);
+                        ctx.shadowBlur = 0;
+
+                        // Petit repère en pointillés sur l'axe, pour le
+                        // distinguer visuellement des traits pleins des
+                        // heures fixes.
+                        ctx.strokeStyle = Qt.rgba(textColor.r, textColor.g, textColor.b, axisOpacity);
+                        ctx.lineWidth = 0.8;
+                        ctx.setLineDash([1, 2]);
+                        ctx.beginPath();
+                        ctx.moveTo(cx, h - pB);
+                        ctx.lineTo(cx, h - pB + 3);
+                        ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+
                     // Halo du point
                     ctx.fillStyle = strokeStyle;
                     ctx.globalAlpha = 0.20;

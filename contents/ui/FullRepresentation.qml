@@ -502,12 +502,74 @@ Item {
                 interactive: true
                 clip: true
 
+                // --- Défilement horizontal à la molette ---
+                // WheelHandler est parfois ignoré dans Plasma et flick() peu fiable
+                // en appel programmatique. On utilise à la place :
+                //   - un MouseArea en overlay (plus compatible Plasma)
+                //   - une animation directe sur contentX (plus fiable que flick)
+                //
+                // acceptedButtons: Qt.NoButton -> la zone ne consomme aucun clic, les
+                // événements press/tap traversent jusqu'aux delegates (jours) en dessous.
+                // La molette est capturée ici et traduite en défilement item par item.
+                MouseArea {
+                    anchors.fill: parent
+                    z: 1
+                    acceptedButtons: Qt.NoButton
+
+                    // hoverEnabled + cursorShape dynamique : sans ça, ce MouseArea
+                    // (placé au-dessus de toute la rangée pour capter la molette)
+                    // impose son curseur "flèche" par défaut partout au-dessus,
+                    // y compris sur les icônes cliquables des delegates en
+                    // dessous. On détecte ici si la souris survole précisément
+                    // l'icône du jour sous le curseur, pour n'afficher la main
+                    // qu'à cet endroit.
+                    hoverEnabled: true
+                    cursorShape: hoveredIcon ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    property bool hoveredIcon: false
+
+                    onPositionChanged: function(mouse) {
+                        let item = forecastSection.itemAt(forecastSection.contentX + mouse.x, mouse.y);
+                        if (item && item.iconItem && rootItem.hasHourlyData) {
+                            let pt = mapToItem(item.iconItem, mouse.x, mouse.y);
+                            hoveredIcon = pt.x >= 0 && pt.x <= item.iconItem.width
+                            && pt.y >= 0 && pt.y <= item.iconItem.height;
+                        } else {
+                            hoveredIcon = false;
+                        }
+                    }
+                    onExited: hoveredIcon = false
+
+                    onWheel: function(wheel) {
+                        let delta = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.angleDelta.x;
+                        let itemW = forecastSection.width / 3;
+                        let curIndex = Math.round(forecastSection.contentX / itemW);
+                        let nextIndex = delta < 0 ? curIndex + 1 : curIndex - 1;
+                        let targetX = nextIndex * itemW;
+                        targetX = Math.max(0, Math.min(
+                            forecastSection.contentWidth - forecastSection.width,
+                                targetX
+                        ));
+                        forecastScrollAnim.to = targetX;
+                        forecastScrollAnim.restart();
+                        wheel.accepted = true;
+                    }
+                }
+
+                NumberAnimation {
+                    id: forecastScrollAnim
+                    target: forecastSection
+                    property: "contentX"
+                    duration: 200
+                    easing.type: Easing.OutCubic
+                }
+
                 model: (rootItem.dailyData && rootItem.dailyData.time) ? (rootItem.dailyData.time.length - root.forecastStartDay) : 0
 
                 delegate: ColumnLayout {
                     width: forecastSection.width / 3
                     spacing: 0
                     readonly property int dayIndex: index + root.forecastStartDay
+                    property alias iconItem: iconWrapper
 
                     PlasmaComponents3.Label {
                         Layout.fillWidth: true
