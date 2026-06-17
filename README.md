@@ -94,6 +94,8 @@ Planned improvements for future releases:
 
 * Improve scrolling behavior for better usability when only a few weather icons remain.
 * Improve and refine weather animations (fix visual issues such as moon overlapping text).
+* Improve the appearance of weather condition descriptions.
+* Improve chart readability.
 * Additional ideas and community suggestions are always welcome.
 
 ---
