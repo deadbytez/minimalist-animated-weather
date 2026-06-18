@@ -50,7 +50,7 @@ https://github.com/user-attachments/assets/9bf4881e-68da-4c3b-9591-92e3b6b0d43a
 2. Open a terminal and run:
 
 ```bash
-kpackagetool6 --type Plasma/Applet --install modern-weather-enhanced.plasmoid
+kpackagetool6 --type Plasma/Applet --install minimalist-animated-weather.plasmoid
 ```
 
 3. Alternatively, open the **Add Widgets** menu, click the menu button, and select **Install from Local File...**.
